@@ -1,6 +1,8 @@
 # CYBER SHIELD
 
-🎬 **Demo video:** https://www.youtube.com/watch?v=XyddedqgFs8
+🎬 **Demo video** — bosing va ko'ring (rasm YouTube'ga olib boradi):
+
+[![CYBER SHIELD demo](https://img.youtube.com/vi/XyddedqgFs8/maxresdefault.jpg)](https://www.youtube.com/watch?v=XyddedqgFs8 "CYBER SHIELD demo")
 
 AI-asoslangan kiberxavfsizlik platformasi. 4 ta mustaqil model bilan phishing URL, spam matn, deepfake rasm va RAM ichidagi malware'ni aniqlaydi. Live RAM monitor host xotirasini real vaqtda kuzatadi.
 
