@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.pth
+data/
+.DS_Store
+# Root-level pkl fayllarni ignore qilish (models/ papkasidagilar commit qilinadi)
+/feature_names.pkl
+/fraud_model.pkl
+cyberrrrrrrrr.mp4
+~$*
+.claude/
+1111*.png

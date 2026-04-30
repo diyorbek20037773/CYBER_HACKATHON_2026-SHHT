@@ -1,0 +1,9 @@
+xgboost>=2.0.0
+pandas
+numpy
+requests
+beautifulsoup4
+python-whois
+googlesearch-python
+python-dateutil
+streamlit

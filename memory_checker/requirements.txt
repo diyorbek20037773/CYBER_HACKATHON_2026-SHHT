@@ -1,0 +1,6 @@
+xgboost>=2.0.0
+pandas
+numpy
+streamlit
+scikit-learn
+psutil

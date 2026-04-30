@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Cybershield - Kiberhujumlar oqimi</title>
+    <script src="https://unpkg.com/globe.gl"></script>
+    <style>
+        body { margin: 0; background-color: #000; overflow: hidden; font-family: 'Courier New', Courier, monospace; }
+        #cyber-map { width: 100vw; height: 100vh; }
+        
+        #info-box {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #00ff00;
+            background: rgba(0, 20, 0, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #00ff00;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+        }
+        h3 { margin-top: 0; color: #fff; text-transform: uppercase; }
+        .alert { color: #ff3333; font-weight: bold; animation: blink 1s infinite; }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="info-box">
+        <h3>🛡️ Cybershield Monitor</h3>
+        <p>Himoyalanayotgan hudud: <b>Toshkent (O'zbekiston)</b></p>
+        <p class="alert">⚠️ Diqqat: Kiruvchi hujumlar aniqlandi!</p>
+    </div>
+
+    <div id="cyber-map"></div>
+
+    <script>
+        // 1. Asosiy nishon koordinatalari (Sizning serveringiz yoki davlat)
+        // Hozir Toshkent koordinatalari kiritilgan
+        const targetLat = 41.2995;
+        const targetLng = 69.2401;
+
+        // 2. Hujum qilayotgan manbalar (Qayerdan kelayotgani)
+        // E'tibor bering: Hamma hujumlarning endLat/endLng qiymati bitta joyga qaratilgan
+        const incomingAttacks = [
+            { startLat: 39.9042, startLng: 116.4074, endLat: targetLat, endLng: targetLng, color: '#ff0000' }, // Pekindan
+            { startLat: 55.7558, startLng: 37.6173, endLat: targetLat, endLng: targetLng, color: '#ff5500' }, // Moskvadan
+            { startLat: 38.9072, startLng: -77.0369, endLat: targetLat, endLng: targetLng, color: '#ff0000' }, // Vashingtondan
+            { startLat: 51.5074, startLng: -0.1278, endLat: targetLat, endLng: targetLng, color: '#ffcc00' }, // Londondan
+            { startLat: -23.5505, startLng: -46.6333, endLat: targetLat, endLng: targetLng, color: '#ff0000' } // San-Pauludan
+        ];
+
+        // 3. Xarita va effektlarni yaratish
+        const myGlobe = Globe()
+            (document.getElementById('cyber-map'))
+            .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
+            
+            // HUJUMLAR (ARCS) - Nurlar nishonga qarab uchadi
+            .arcsData(incomingAttacks)
+            .arcStartLat(d => d.startLat)
+            .arcStartLng(d => d.startLng)
+            .arcEndLat(d => d.endLat)
+            .arcEndLng(d => d.endLng)
+            .arcColor(d => [d.color, d.color])
+            .arcDashLength(0.4) // Nur uzunligi
+            .arcDashGap(1)      // Nurlar orasidagi ochiq joy
+            .arcDashInitialGap(Math.random) // Hujumlar har xil vaqtda boshlanishi uchun
+            .arcDashAnimateTime(1500) // Hujumning yetib kelish tezligi (1.5 soniya)
+
+            // NISHON VA MANBALAR UCHUN TO'LQINLAR (RINGS) - Radar effekti
+            .ringsData([
+                { lat: targetLat, lng: targetLng, color: '#00ff00', maxR: 5 }, // Nishondagi yashil himoya to'lqini
+                ...incomingAttacks.map(d => ({ lat: d.startLat, lng: d.startLng, color: '#ff0000', maxR: 3 })) // Hujumchilarning qizil nuqtalari
+            ])
+            .ringColor(d => t => `rgba(${d.color === '#00ff00' ? '0,255,0' : '255,0,0'},${1-t})`) // Yo'qolib boruvchi rang
+            .ringMaxRadius(d => d.maxR) // To'lqinning maksimal kattaligi
+            .ringPropagationSpeed(3)    // To'lqin tarqalish tezligi
+            .ringRepeatPeriod(700);     // To'lqinning takrorlanish tezligi
+
+        // 4. Kamerani nishonga qaratish
+        myGlobe.pointOfView({ lat: targetLat, lng: targetLng, altitude: 2.0 });
+        
+        // Yerni sekin aylantirib qo'yish
+        myGlobe.controls().autoRotate = true;
+        myGlobe.controls().autoRotateSpeed = 0.3;
+    </script>
+
+</body>
+</html>

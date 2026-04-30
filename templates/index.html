@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER SHIELD — Unified AI Cyber-Defense Platform</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/cc.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/globe.gl"></script>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="uz">UZ</button>
+                <span class="lang-sep">|</span>
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <span class="lang-sep">|</span>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <div class="nav-brand">CYBER_SHIELD</div>
+        </div>
+
+        <div class="model-bar-top">
+            <a href="#demo" class="model-bar active" data-model="url">
+                <i class="fas fa-link"></i>
+                <span class="mb-name">PhishGuard</span>
+            </a>
+            <a href="#spam-demo" class="model-bar" data-model="nlp">
+                <i class="fas fa-comment-dots"></i>
+                <span class="mb-name">TextShield</span>
+            </a>
+            <a href="#deepfake-demo" class="model-bar" data-model="deepfake">
+                <i class="fas fa-user-secret"></i>
+                <span class="mb-name">DeepEye</span>
+            </a>
+            <a href="#malmem-demo" class="model-bar" data-model="malmem">
+                <i class="fas fa-memory"></i>
+                <span class="mb-name">MemGuard</span>
+            </a>
+        </div>
+
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#models-info"  data-i18n="nav_models">Modellar</a>
+                <a href="#achievements" data-i18n="nav_achievements">Yutuqlar</a>
+                <a href="#team"         data-i18n="nav_team">Jamoa</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Slayd 1.7: Command Center (AEGIS SURVEILLANCE style) -->
+    <section id="command-center" class="slide cc-section">
+        <div class="cc-container">
+            <div class="cc-topbar">
+                <div class="cc-topstats">
+                    <span class="cc-pill"><span class="cc-dot ok"></span> SYSTEM: ONLINE</span>
+                    <span class="cc-pill">UPTIME: 428:12:05</span>
+                    <span class="cc-pill">LATENCY: 4MS</span>
+                </div>
+            </div>
+
+            <div class="cc-grid-top">
+                <!-- Live Monitoring Globe -->
+                <div class="cc-panel cc-globe-panel">
+                    <div class="cc-panel-header">
+                        <span class="cc-pulse"></span>
+                        <h3>LIVE MONITORING</h3>
+                        <span class="cc-coords">LAT: 41.2995 N | LON: 69.2401 E</span>
+                    </div>
+                    <div id="cyber-globe" class="cc-globe"></div>
+                    <div class="cc-globe-info">
+                        <h4>CYBERSHIELD MONITOR</h4>
+                        <p>Himoyalanayotgan hudud: <b>Toshkent (O'zbekiston)</b></p>
+                        <p class="cc-alert">Diqqat: Kiruvchi hujumlar aniqlandi!</p>
+                    </div>
+                </div>
+
+                <!-- Global Statistics -->
+                <div class="cc-panel cc-stats-panel">
+                    <div class="cc-panel-header">
+                        <i class="fas fa-globe ok"></i>
+                        <h3>GLOBAL STATISTICS</h3>
+                    </div>
+                    <div class="cc-stats-body">
+                        <div class="cc-stat-card">
+                            <div class="cc-stat-label">Total Attacks (24h)</div>
+                            <div class="cc-stat-row">
+                                <span class="cc-stat-num">24,532</span>
+                                <span class="cc-stat-trend"><i class="fas fa-arrow-up"></i> 12.4%</span>
+                            </div>
+                        </div>
+                        <div class="cc-stat-section">
+                            <div class="cc-stat-label">Top Attack Types</div>
+                            <div class="cc-bars">
+                                <div class="cc-bar-row">
+                                    <div class="cc-bar-text"><span>Phishing</span><span class="err">42%</span></div>
+                                    <div class="cc-bar"><div class="cc-bar-fill err" style="width:42%"></div></div>
+                                </div>
+                                <div class="cc-bar-row">
+                                    <div class="cc-bar-text"><span>Malware</span><span class="warn">28%</span></div>
+                                    <div class="cc-bar"><div class="cc-bar-fill warn" style="width:28%"></div></div>
+                                </div>
+                                <div class="cc-bar-row">
+                                    <div class="cc-bar-text"><span>DDoS</span><span class="ok">15%</span></div>
+                                    <div class="cc-bar"><div class="cc-bar-fill ok" style="width:15%"></div></div>
+                                </div>
+                                <div class="cc-bar-row">
+                                    <div class="cc-bar-text"><span>Spam</span><span class="warn">10%</span></div>
+                                    <div class="cc-bar"><div class="cc-bar-fill warn" style="width:10%"></div></div>
+                                </div>
+                                <div class="cc-bar-row">
+                                    <div class="cc-bar-text"><span>Other</span><span class="muted">5%</span></div>
+                                    <div class="cc-bar"><div class="cc-bar-fill muted" style="width:5%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cards row: Threat / Organizations / Regions / SCO -->
+            <div class="cc-grid-cards">
+                <div class="cc-panel">
+                    <div class="cc-panel-bar err"></div>
+                    <div class="cc-panel-header">
+                        <i class="fas fa-exclamation-triangle err"></i>
+                        <h3>THREAT DETAILS</h3>
+                    </div>
+                    <div class="cc-panel-body">
+                        <span class="cc-badge err">ACTIVE INCIDENT</span>
+                        <div class="cc-threat-title">Phishing Attack Detected</div>
+                        <div class="cc-threat-target">Target: Exec. Board Level</div>
+                        <div class="cc-row"><span>Risk Level:</span><span class="err bold">CRITICAL</span></div>
+                        <div class="cc-row"><span>Source IP:</span><span class="mono">192.168.1.105</span></div>
+                        <button class="cc-btn err"><i class="fas fa-ban"></i> BLOCK IP RANGE</button>
+                    </div>
+                </div>
+
+                <div class="cc-panel">
+                    <div class="cc-panel-header">
+                        <i class="fas fa-building warn"></i>
+                        <h3>ORGANIZATIONS</h3>
+                    </div>
+                    <div class="cc-panel-body">
+                        <div class="cc-org-row">
+                            <div class="cc-org-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div>
+                                <div class="cc-org-name">CyberShield Corp</div>
+                                <div class="cc-org-status ok">STATUS: NOMINAL</div>
+                            </div>
+                        </div>
+                        <div class="cc-org-grid">
+                            <div class="cc-mini-card">
+                                <div class="cc-mini-num">120</div>
+                                <div class="cc-mini-label">Devices</div>
+                            </div>
+                            <div class="cc-mini-card err-border">
+                                <div class="cc-mini-num err">8</div>
+                                <div class="cc-mini-label">Threats</div>
+                            </div>
+                        </div>
+                        <div class="cc-stat-label">Recent Incidents</div>
+                        <div class="cc-incident"><span class="mono err">14:02:11</span><span>Unauthorized Access</span></div>
+                        <div class="cc-incident"><span class="mono warn">13:45:00</span><span>Multiple Failed Logins</span></div>
+                    </div>
+                </div>
+
+                <div class="cc-panel">
+                    <div class="cc-panel-header">
+                        <i class="fas fa-map-marker-alt ok"></i>
+                        <h3>REGIONS</h3>
+                    </div>
+                    <div class="cc-region-body">
+                        <div class="cc-region-ring"></div>
+                        <div class="cc-region-dot"></div>
+                        <div class="cc-region-tag">UZBEKISTAN</div>
+                    </div>
+                </div>
+
+                <div class="cc-panel">
+                    <div class="cc-panel-header">
+                        <h3>SCO / SHHT REGION</h3>
+                    </div>
+                    <table class="cc-region-table">
+                        <tbody>
+                            <tr><td><span class="cc-dot err"></span> Uzbekistan</td><td><span class="cc-tag err">LEVEL 4</span></td></tr>
+                            <tr><td><span class="cc-dot err"></span> Russia</td><td><span class="cc-tag err">LEVEL 5</span></td></tr>
+                            <tr><td><span class="cc-dot warn"></span> China</td><td><span class="cc-tag warn">LEVEL 3</span></td></tr>
+                            <tr><td><span class="cc-dot ok"></span> Kazakhstan</td><td><span class="cc-tag ok">LEVEL 1</span></td></tr>
+                            <tr><td><span class="cc-dot warn"></span> Kyrgyzstan</td><td><span class="cc-tag warn">LEVEL 2</span></td></tr>
+                            <tr><td><span class="cc-dot ok"></span> Tajikistan</td><td><span class="cc-tag ok">LEVEL 1</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Bottom: Live Attack Feed + Key Features -->
+            <div class="cc-grid-bottom">
+                <div class="cc-panel cc-feed-panel">
+                    <div class="cc-panel-header">
+                        <i class="fas fa-list"></i>
+                        <h3>LIVE ATTACK FEED</h3>
+                        <div class="cc-actions">
+                            <button class="cc-mini-btn">EXPORT</button>
+                            <button class="cc-mini-btn">FILTER</button>
+                        </div>
+                    </div>
+                    <div class="cc-feed-wrap">
+                        <table class="cc-feed-table">
+                            <thead>
+                                <tr>
+                                    <th>TIMESTAMP</th>
+                                    <th>SOURCE IP</th>
+                                    <th>TARGET</th>
+                                    <th>PROTOCOL</th>
+                                    <th>STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="muted">14:05:12</td><td class="err">185.12.x.x</td><td>DB_Cluster_01</td><td>TCP/443</td><td><span class="cc-tag err">DENIED</span></td></tr>
+                                <tr><td class="muted">14:05:10</td><td class="warn">203.0.x.x</td><td>Gateway_Auth</td><td>UDP/53</td><td><span class="cc-tag warn">INTERCEPTED</span></td></tr>
+                                <tr><td class="muted">14:05:08</td><td>45.22.x.x</td><td>Mail_Server_Main</td><td>SMTP/25</td><td><span class="cc-tag ok">MITIGATED</span></td></tr>
+                                <tr><td class="muted">14:04:55</td><td class="err">112.55.x.x</td><td>API_Endpoint_v2</td><td>HTTPS</td><td><span class="cc-tag err">DENIED</span></td></tr>
+                                <tr><td class="muted">14:04:32</td><td class="warn">94.7.x.x</td><td>SSH_Bastion</td><td>TCP/22</td><td><span class="cc-tag warn">INTERCEPTED</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="cc-panel cc-features-panel">
+                    <div class="cc-panel-header">
+                        <i class="fas fa-th"></i>
+                        <h3>KEY FEATURES</h3>
+                    </div>
+                    <div class="cc-features-grid">
+                        <div class="cc-feat"><i class="fas fa-eye ok"></i><span>Real-time<br>Monitoring</span></div>
+                        <div class="cc-feat"><i class="fas fa-globe warn"></i><span>Global Threat<br>Intelligence</span></div>
+                        <div class="cc-feat"><i class="fas fa-bolt"></i><span>Automated<br>Response</span></div>
+                        <div class="cc-feat"><i class="fas fa-chart-line"></i><span>Advanced<br>Analytics</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slayd 7: PhishGuard URL Demo -->
+    <section id="demo" class="slide">
+        <div class="container">
+            <h2 class="section-title">PhishGuard</h2>
+            <p class="section-subtitle" data-i18n="demo_sub">URL kiriting va phishing ekanligini tekshiring</p>
+            <img src="/static/images/phishing_metrics.jpg" alt="PhishGuard Metrics"
+                 class="metrics-img" onerror="this.style.display='none';">
+            <div class="cs-layout">
+                <div class="cs-card">
+                    <div class="cs-card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="cs-card-title" data-i18n="cs_url_title">Phishing URL Tekshirish</h3>
+                    <form id="predictionForm" class="cs-form">
+                        <input class="cs-input" type="text" name="url"
+                               placeholder="https://example.com/login" required>
+                        <button type="submit" class="cs-btn">
+                            <i class="fas fa-search"></i>
+                            <span data-i18n="cs_url_btn">Tekshirishni boshlash</span>
+                        </button>
+                        <div class="cs-hint" data-i18n="form_hint">
+                            HTML va WHOIS ma'lumotlari ham tahlil qilinadi (~10 sek).
+                        </div>
+                    </form>
+                </div>
+                <div class="cs-result" id="resultCard" style="display:none;">
+                    <div id="mainResult"></div>
+                    <div id="modelResults"></div>
+                </div>
+            </div>
+            <div class="colab-link">
+                <a href="https://colab.research.google.com/drive/1UmXht28d3XZtF2h8hFudrmoXhrS7XXRk?usp=sharing"
+                   target="_blank" class="colab-btn">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span data-i18n="model_colab">Google Colab Notebook</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slayd 7.5: Spam / Phishing-text Demo -->
+    <section id="spam-demo" class="slide">
+        <div class="container">
+            <h2 class="section-title">TextShield</h2>
+            <p class="section-subtitle" data-i18n="spam_sub">Multilingual NLP model — xabar matnini spam yoki normal sifatida tasniflaydi</p>
+            <img src="/static/images/nlp_metrics.jpg" alt="TextShield Metrics"
+                 class="metrics-img" onerror="this.style.display='none';">
+
+            <div class="cs-layout">
+                <div class="cs-card">
+                    <div class="cs-card-icon"><i class="fas fa-comment-dots"></i></div>
+                    <h3 class="cs-card-title" data-i18n="cs_spam_title">Spam / Phishing-text</h3>
+                    <form id="spamForm" class="cs-form">
+                        <textarea name="text" rows="6" required
+                                  placeholder="Good news! Your loan application has been pre-approved..."></textarea>
+                        <button type="submit" class="cs-btn">
+                            <i class="fas fa-envelope-open-text"></i>
+                            <span data-i18n="cs_spam_btn">Matnni tahlil qilish</span>
+                        </button>
+                        <div class="cs-hint" data-i18n="spam_hint">
+                            SentenceTransformer (MiniLM-L12, 384-dim) + FC classifier
+                        </div>
+                    </form>
+                </div>
+                <div class="cs-result" id="spamResultCard" style="display:none;">
+                    <div id="spamMainResult"></div>
+                    <div id="spamModelResults"></div>
+                </div>
+            </div>
+            <div class="colab-link">
+                <a href="https://colab.research.google.com/drive/116eaFCO9rojOv1NuenWm30ZA-JNTsFqT?usp=sharing"
+                   target="_blank" class="colab-btn">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span data-i18n="model_colab">Google Colab Notebook</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slayd 7.7: Deepfake Detector (DeepEye) -->
+    <section id="deepfake-demo" class="slide">
+        <div class="container">
+            <h2 class="section-title">DeepEye</h2>
+            <p class="section-subtitle" data-i18n="df_sub">Transfer Learning (MobileNetV2) — yuz rasmini Real yoki Fake sifatida tasniflaydi</p>
+            <img src="/static/images/deepfake_metrics.png" alt="DeepEye Metrics"
+                 class="metrics-img" onerror="this.style.display='none';">
+
+            <div class="cs-layout">
+                <div class="cs-card">
+                    <div class="cs-card-icon"><i class="fas fa-user-secret"></i></div>
+                    <h3 class="cs-card-title" data-i18n="cs_df_title">Deepfake Detector</h3>
+                    <form id="deepfakeForm" class="cs-form" enctype="multipart/form-data">
+                        <input type="file" name="image" accept="image/*" required>
+                        <button type="submit" class="cs-btn">
+                            <i class="fas fa-eye"></i>
+                            <span data-i18n="cs_df_btn">Rasmni tahlil qilish</span>
+                        </button>
+                        <div class="cs-hint" data-i18n="df_hint">
+                            Rasm 224x224 ga o'lchanadi va MobileNetV2 preprocessing dan o'tadi.
+                        </div>
+                    </form>
+                </div>
+                <div class="cs-result" id="deepfakeResultCard" style="display:none;">
+                    <div id="deepfakeMainResult"></div>
+                    <div id="deepfakeModelResults"></div>
+                </div>
+            </div>
+            <div class="colab-link">
+                <a href="https://colab.research.google.com/drive/1u-4okhNrSOcUN_f8kb_n23XgcU9KOS7V?usp=sharing"
+                   target="_blank" class="colab-btn">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span data-i18n="model_colab">Google Colab Notebook</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slayd 7.9: Memory / Ransomware Detector (MemGuard) -->
+    <section id="malmem-demo" class="slide">
+        <div class="container">
+            <h2 class="section-title">MemGuard</h2>
+            <p class="section-subtitle" data-i18n="mm_sub">XGBoost binary + multi class — Benign, Ransomware, Spyware yoki Trojan</p>
+            <img src="/static/images/ransomware_metrics.png" alt="MemGuard Metrics"
+                 class="metrics-img" onerror="this.style.display='none';">
+
+            <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin: 1rem 0;">
+                <a href="/sample/sample_benign.csv" download class="tag" style="text-decoration:none;">Benign</a>
+                <a href="/sample/sample_ransomware.csv" download class="tag highlight" style="text-decoration:none;">Ransomware</a>
+                <a href="/sample/sample_spyware.csv" download class="tag" style="text-decoration:none;">Spyware</a>
+                <a href="/sample/sample_trojan.csv" download class="tag" style="text-decoration:none;">Trojan</a>
+            </div>
+
+            <div class="cs-layout">
+                <div class="cs-card">
+                    <div class="cs-card-icon"><i class="fas fa-memory"></i></div>
+                    <h3 class="cs-card-title" data-i18n="cs_mm_title">RAM Xotira Tahlili</h3>
+                    <form id="malmemForm" class="cs-form" enctype="multipart/form-data">
+                        <input type="file" name="csv" accept=".csv" required>
+                        <button type="submit" class="cs-btn">
+                            <i class="fas fa-microscope"></i>
+                            <span data-i18n="cs_mm_btn">CSV ni tahlil qilish</span>
+                        </button>
+                        <div class="cs-hint" data-i18n="mm_hint">
+                            Yuqoridagi namuna fayllarni yuklab oling va sinab ko'ring.
+                        </div>
+                    </form>
+                </div>
+                <div class="cs-result" id="malmemResultCard" style="display:none;">
+                    <div id="malmemMainResult"></div>
+                    <div id="malmemModelResults"></div>
+                </div>
+            </div>
+
+            <!-- Live RAM monitor -->
+            <div class="cs-layout" style="margin-top:1.5rem;">
+                <div class="cs-card">
+                    <div class="cs-card-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3 class="cs-card-title">Live RAM Tahlili</h3>
+                    <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+                        <button id="liveRamStart" type="button" class="cs-btn">
+                            <i class="fas fa-play"></i> <span>Boshlash</span>
+                        </button>
+                        <button id="liveRamStop" type="button" class="cs-btn" style="display:none; background:#444;">
+                            <i class="fas fa-stop"></i> <span>To'xtatish</span>
+                        </button>
+                    </div>
+                    <div class="cs-hint">
+                        Hozirgi tizim RAM holati va eng ko'p xotira ishlatuvchi 5 ta jarayon (har 2 sekundda yangilanadi).
+                    </div>
+                </div>
+                <div class="cs-result" id="liveRamCard" style="display:none;">
+                    <div id="liveRamMain"></div>
+                    <div id="liveRamProcs"></div>
+                </div>
+            </div>
+            <div class="colab-link">
+                <a href="https://colab.research.google.com/drive/1UmXht28d3XZtF2h8hFudrmoXhrS7XXRk?usp=sharing"
+                   target="_blank" class="colab-btn">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span data-i18n="model_colab">Google Colab Notebook</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slayd 8.5: Models Info -->
+    <section id="models-info" class="slide">
+        <div class="container">
+            <h2 class="section-title">Modellar</h2>
+            <p class="section-subtitle" data-i18n="mi_sub">CYBER SHIELD platformasi ishlatadigan 4 ta AI model</p>
+
+            <div class="mi-grid">
+                <div class="mi-card">
+                    <div class="mi-icon"><i class="fas fa-link"></i></div>
+                    <h3 class="mi-name">PhishGuard</h3>
+                    <span class="mi-tag">URL · XGBoost</span>
+                    <div class="mi-metrics">
+                        <div class="mi-metric"><span class="mi-num">0.97</span><span class="mi-lbl">F1</span></div>
+                        <div class="mi-metric"><span class="mi-num">99.4%</span><span class="mi-lbl">ROC-AUC</span></div>
+                        <div class="mi-metric"><span class="mi-num">97%</span><span class="mi-lbl">Precision</span></div>
+                        <div class="mi-metric"><span class="mi-num">96%</span><span class="mi-lbl">Recall</span></div>
+                    </div>
+                    <div class="mi-row"><span data-i18n="mi_dataset">Dataset:</span><b>UCI / PhishTank · 11,055 URL</b></div>
+                    <div class="mi-row"><span data-i18n="mi_features">Features:</span><b>30 (URL + HTML + WHOIS)</b></div>
+                    <div class="mi-row"><span data-i18n="mi_input">Input:</span><b>URL string</b></div>
+                    <div class="mi-row"><span data-i18n="mi_output">Output:</span><b>PHISHING / SAFE + %</b></div>
+                    <a href="https://colab.research.google.com/drive/1UmXht28d3XZtF2h8hFudrmoXhrS7XXRk?usp=sharing"
+                       target="_blank" class="mi-colab"><i class="fas fa-external-link-alt"></i> Colab</a>
+                </div>
+
+                <div class="mi-card">
+                    <div class="mi-icon"><i class="fas fa-comment-dots"></i></div>
+                    <h3 class="mi-name">TextShield</h3>
+                    <span class="mi-tag">NLP · MiniLM + FC</span>
+                    <div class="mi-metrics">
+                        <div class="mi-metric"><span class="mi-num">0.96</span><span class="mi-lbl">F1</span></div>
+                        <div class="mi-metric"><span class="mi-num">98.1%</span><span class="mi-lbl">Accuracy</span></div>
+                        <div class="mi-metric"><span class="mi-num">50+</span><span class="mi-lbl">Tillar</span></div>
+                        <div class="mi-metric"><span class="mi-num">384</span><span class="mi-lbl">Embedding</span></div>
+                    </div>
+                    <div class="mi-row"><span data-i18n="mi_dataset">Dataset:</span><b>SMS Spam · Enron Email · multilingual scams</b></div>
+                    <div class="mi-row"><span data-i18n="mi_arch">Arxitektura:</span><b>SentenceTransformer (MiniLM-L12) + 6-layer FC</b></div>
+                    <div class="mi-row"><span data-i18n="mi_input">Input:</span><b>Matn (UZ / RU / EN ...)</b></div>
+                    <div class="mi-row"><span data-i18n="mi_output">Output:</span><b>SPAM / NORMAL + %</b></div>
+                    <a href="https://colab.research.google.com/drive/116eaFCO9rojOv1NuenWm30ZA-JNTsFqT?usp=sharing"
+                       target="_blank" class="mi-colab"><i class="fas fa-external-link-alt"></i> Colab</a>
+                </div>
+
+                <div class="mi-card">
+                    <div class="mi-icon"><i class="fas fa-user-secret"></i></div>
+                    <h3 class="mi-name">DeepEye</h3>
+                    <span class="mi-tag">Vision · MobileNetV2</span>
+                    <div class="mi-metrics">
+                        <div class="mi-metric"><span class="mi-num">94%</span><span class="mi-lbl">Accuracy</span></div>
+                        <div class="mi-metric"><span class="mi-num">0.93</span><span class="mi-lbl">F1</span></div>
+                        <div class="mi-metric"><span class="mi-num">140K</span><span class="mi-lbl">Train rasm</span></div>
+                        <div class="mi-metric"><span class="mi-num">224²</span><span class="mi-lbl">Input</span></div>
+                    </div>
+                    <div class="mi-row"><span data-i18n="mi_dataset">Dataset:</span><b>Kaggle Real vs Fake Faces · 140,000 yuz</b></div>
+                    <div class="mi-row"><span data-i18n="mi_arch">Arxitektura:</span><b>MobileNetV2 (frozen) → GAP → Dense(128) → Dense(1, sigmoid)</b></div>
+                    <div class="mi-row"><span data-i18n="mi_input">Input:</span><b>Yuz rasmi (jpg / png)</b></div>
+                    <div class="mi-row"><span data-i18n="mi_output">Output:</span><b>REAL / FAKE + %</b></div>
+                    <a href="https://colab.research.google.com/drive/1u-4okhNrSOcUN_f8kb_n23XgcU9KOS7V?usp=sharing"
+                       target="_blank" class="mi-colab"><i class="fas fa-external-link-alt"></i> Colab</a>
+                </div>
+
+                <div class="mi-card">
+                    <div class="mi-icon"><i class="fas fa-memory"></i></div>
+                    <h3 class="mi-name">MemGuard</h3>
+                    <span class="mi-tag">Memory · XGBoost x2</span>
+                    <div class="mi-metrics">
+                        <div class="mi-metric"><span class="mi-num">99%</span><span class="mi-lbl">Binary Acc</span></div>
+                        <div class="mi-metric"><span class="mi-num">87%</span><span class="mi-lbl">Multi Acc</span></div>
+                        <div class="mi-metric"><span class="mi-num">55</span><span class="mi-lbl">Features</span></div>
+                        <div class="mi-metric"><span class="mi-num">4</span><span class="mi-lbl">Sinflar</span></div>
+                    </div>
+                    <div class="mi-row"><span data-i18n="mi_dataset">Dataset:</span><b>CIC-MalMem-2022 · 58,596 yozuv</b></div>
+                    <div class="mi-row"><span data-i18n="mi_features">Features:</span><b>VolMemLyzer (pslist / handles / malfind / svcscan)</b></div>
+                    <div class="mi-row"><span data-i18n="mi_input">Input:</span><b>VolMemLyzer CSV</b></div>
+                    <div class="mi-row"><span data-i18n="mi_output">Output:</span><b>Benign / Ransomware / Spyware / Trojan + %</b></div>
+                    <a href="https://colab.research.google.com/drive/1UmXht28d3XZtF2h8hFudrmoXhrS7XXRk?usp=sharing"
+                       target="_blank" class="mi-colab"><i class="fas fa-external-link-alt"></i> Colab</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slayd 9: Hakaton Yutuqlari -->
+    <section id="achievements" class="slide">
+        <div class="container">
+            <h2 class="section-title" data-i18n="ach_title">Hakaton Yutuqlari</h2>
+            <p class="section-subtitle" data-i18n="ach_sub">Real musobaqalarda qo'lga kiritilgan g'alabalar</p>
+            <div class="achievements-grid">
+
+                <div class="achievement-card">
+                    <div class="achievement-badge">
+                        <i class="fas fa-trophy"></i>
+                        <span data-i18n="ach_1st">1-O'RIN</span>
+                    </div>
+                    <div class="achievement-image-wrap">
+                        <img src="/static/images/yutuq1.jpg" alt="National AI Hackathon"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="ach-img-placeholder" style="display:none;"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="ach-title" data-i18n="ach1_title">Umummilliy AI Hackathon</h3>
+                        <div class="ach-meta">
+                            <span class="ach-location"><i class="fas fa-map-marker-alt"></i> Termiz, Surxondaryo</span>
+                            <span class="ach-date"><i class="fas fa-calendar-alt"></i> 31 mart – 3 aprel</span>
+                        </div>
+                        <p class="ach-desc" data-i18n="ach1_desc">
+                            500 dan ortiq iqtidorli yoshlar ishtirok etgan musobaqada jamoamiz hakamlar tomonidan
+                            faxrli <strong>1-o'ringa</strong> loyiq topildi va <strong>MacBook M4</strong> noutbuklari bilan mukofotlandi.
+                            Bojxona instituti Data Science to'garagi vakili sifatida g'alaba qozonildi.
+                        </p>
+                        <div class="ach-prize">
+                            <i class="fas fa-laptop"></i>
+                            <span data-i18n="ach1_prize">MacBook M4 noutbuk</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-badge">
+                        <i class="fas fa-trophy"></i>
+                        <span data-i18n="ach_1st">1-O'RIN</span>
+                    </div>
+                    <div class="achievement-image-wrap">
+                        <img src="/static/images/yutuq2.jpg" alt="REAL HOLAT Hackathon"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="ach-img-placeholder" style="display:none;"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="ach-title" data-i18n="ach2_title">"REAL HOLAT" Hakatoni — School 21</h3>
+                        <div class="ach-meta">
+                            <span class="ach-location"><i class="fas fa-map-marker-alt"></i> School 21, Toshkent</span>
+                            <span class="ach-date"><i class="fas fa-calendar-alt"></i> 14–15 mart</span>
+                        </div>
+                        <p class="ach-desc" data-i18n="ach2_desc">
+                            100 dan ortiq ishtirokchidan saralangan 36 jamoa bellashgan finalda
+                            <strong>"DOPPIX"</strong> jamoasi nomi ostida "Geoportal" innovatsion loyihamiz bilan
+                            <strong>1-o'rinni</strong> egalladik. Musobaqa Prezident huzuridagi Strategik islohotlar
+                            agentligi va GIZ xalqaro tashkiloti hamkorligida o'tkazildi.
+                        </p>
+                        <div class="ach-prize">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span data-i18n="ach2_prize">260 million so'm mukofot fondi + Development Grant</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Slayd 10: Jamoa -->
+    <section id="team" class="slide">
+        <div class="container">
+            <h2 class="section-title" data-i18n="team_title">Jamoa</h2>
+            <div class="team-grid">
+                {% for m in team %}
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="/static/images/{{ m.photo }}" alt="{{ m.name }}"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="avatar-placeholder" style="display:none;"><i class="fas fa-user"></i></div>
+                    </div>
+                    <h3 class="member-name">{{ m.name }}</h3>
+                    <p class="member-role">{{ m.role }}</p>
+                    <div class="member-socials">
+                        <a href="{{ m.linkedin }}" target="_blank" class="social-linkedin" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="{{ m.github }}" target="_blank" class="social-github" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="{{ m.telegram }}" target="_blank" class="social-telegram" title="Telegram">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="colab-link">
+                <a href="https://github.com/diyorbek20037773/CYBER_HACKATHON_2026-SHHT" target="_blank" class="github-repo-btn">
+                    <i class="fab fa-github"></i>
+                    <span data-i18n="team_github">GitHub Repo</span>
+                </a>
+                <a href="https://www.youtube.com/@DiyorbekIbragimov7377" target="_blank" class="youtube-btn">
+                    <i class="fab fa-youtube"></i>
+                    <span data-i18n="team_youtube">YouTube Kanal</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>CYBER SHIELD Platform &copy; 2026 | <span data-i18n="footer_text">Hakaton loyihasi</span></p>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
